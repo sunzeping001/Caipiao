@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.great.caipiao"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+greendao {
+    schemaVersion 1 //<--数据库的版本，用于升级时候进行更改
+    daoPackage 'com.great.caipiao.db.greendao'
+    //这个是生成DAOs、DaoMaster、DaoSession代码保存的包名,默认为entities所在包名
+    targetGenDir 'src/main/java' //生成DAOs、DaoMaster、DaoSession的目录。默认为build/generated/source/greendao
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'org.greenrobot:greendao-generator:3.2.2'
+    api 'net.zetetic:android-database-sqlcipher:3.5.6'
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp"
+    implementation "com.google.code.gson:gson:$rootProject.ext.gson"
+    //rxjava2
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjava"
+    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroid"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.converter_gson"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.retrofit2_rxjava2_adapter"
+    implementation "io.reactivex:rxandroid:1.2.1"
+}

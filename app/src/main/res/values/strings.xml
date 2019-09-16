@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">超级彩票分析软件</string>
+    <string name="baiwei">百位</string>
+    <string name="shiwei">十位</string>
+    <string name="gewei">个位</string>
+
+
+</resources>
