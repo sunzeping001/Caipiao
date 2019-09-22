@@ -25,8 +25,11 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
      */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Jigou = new Property(1, String.class, "jigou", false, "JIGOU");
-        public final static Property Zhihe = new Property(2, String.class, "zhihe", false, "ZHIHE");
+        public final static Property Baiwei = new Property(1, String.class, "baiwei", false, "BAIWEI");
+        public final static Property Shiwei = new Property(2, String.class, "shiwei", false, "SHIWEI");
+        public final static Property Gewei = new Property(3, String.class, "gewei", false, "GEWEI");
+        public final static Property Jigou = new Property(4, int.class, "jigou", false, "JIGOU");
+        public final static Property Zhihe = new Property(5, int.class, "zhihe", false, "ZHIHE");
     }
 
 
@@ -43,8 +46,11 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"CONFIG_DATA\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"JIGOU\" TEXT," + // 1: jigou
-                "\"ZHIHE\" TEXT);"); // 2: zhihe
+                "\"BAIWEI\" TEXT," + // 1: baiwei
+                "\"SHIWEI\" TEXT," + // 2: shiwei
+                "\"GEWEI\" TEXT," + // 3: gewei
+                "\"JIGOU\" INTEGER NOT NULL ," + // 4: jigou
+                "\"ZHIHE\" INTEGER NOT NULL );"); // 5: zhihe
     }
 
     /** Drops the underlying database table. */
@@ -62,15 +68,22 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
             stmt.bindLong(1, id);
         }
  
-        String jigou = entity.getJigou();
-        if (jigou != null) {
-            stmt.bindString(2, jigou);
+        String baiwei = entity.getBaiwei();
+        if (baiwei != null) {
+            stmt.bindString(2, baiwei);
         }
  
-        String zhihe = entity.getZhihe();
-        if (zhihe != null) {
-            stmt.bindString(3, zhihe);
+        String shiwei = entity.getShiwei();
+        if (shiwei != null) {
+            stmt.bindString(3, shiwei);
         }
+ 
+        String gewei = entity.getGewei();
+        if (gewei != null) {
+            stmt.bindString(4, gewei);
+        }
+        stmt.bindLong(5, entity.getJigou());
+        stmt.bindLong(6, entity.getZhihe());
     }
 
     @Override
@@ -82,15 +95,22 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
             stmt.bindLong(1, id);
         }
  
-        String jigou = entity.getJigou();
-        if (jigou != null) {
-            stmt.bindString(2, jigou);
+        String baiwei = entity.getBaiwei();
+        if (baiwei != null) {
+            stmt.bindString(2, baiwei);
         }
  
-        String zhihe = entity.getZhihe();
-        if (zhihe != null) {
-            stmt.bindString(3, zhihe);
+        String shiwei = entity.getShiwei();
+        if (shiwei != null) {
+            stmt.bindString(3, shiwei);
         }
+ 
+        String gewei = entity.getGewei();
+        if (gewei != null) {
+            stmt.bindString(4, gewei);
+        }
+        stmt.bindLong(5, entity.getJigou());
+        stmt.bindLong(6, entity.getZhihe());
     }
 
     @Override
@@ -102,8 +122,11 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
     public ConfigData readEntity(Cursor cursor, int offset) {
         ConfigData entity = new ConfigData( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // jigou
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // zhihe
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // baiwei
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // shiwei
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // gewei
+            cursor.getInt(offset + 4), // jigou
+            cursor.getInt(offset + 5) // zhihe
         );
         return entity;
     }
@@ -111,8 +134,11 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
     @Override
     public void readEntity(Cursor cursor, ConfigData entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setJigou(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setZhihe(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setBaiwei(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setShiwei(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setGewei(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setJigou(cursor.getInt(offset + 4));
+        entity.setZhihe(cursor.getInt(offset + 5));
      }
     
     @Override

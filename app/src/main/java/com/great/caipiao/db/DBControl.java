@@ -1,6 +1,7 @@
 package com.great.caipiao.db;
 
 import com.great.caipiao.CaipiaoApplication;
+import com.great.caipiao.db.entity.ConfigData;
 import com.great.caipiao.db.entity.MainData;
 
 import java.util.List;
@@ -91,10 +92,7 @@ public class DBControl {
     //  return ;
     //}
 
-    public static Observable<MainData> insertMainData(MainData data) {
-        return CaipiaoApplication.getDaoSession().getMainDataDao().rx().insert(data);
-    }
-
+    /*************************************************************/
     public static Observable<Iterable<MainData>> insertMainDatas(List<MainData> datas){
         return CaipiaoApplication.getDaoSession().getMainDataDao().rx().insertInTx(datas);
     }
@@ -106,5 +104,29 @@ public class DBControl {
     public static Observable<Void> deleteMainDatas(){
         return CaipiaoApplication.getDaoSession().getMainDataDao().rx().deleteAll();
     }
+
+    public static Observable<MainData> insertMainData(MainData data) {
+        return CaipiaoApplication.getDaoSession().getMainDataDao().rx().insert(data);
+    }
+    /*************************************************************/
+
+
+    public static Observable<List<ConfigData>> getConfiginfo(){
+        return CaipiaoApplication.getDaoSession().getConfigDataDao().rx().loadAll();
+    }
+
+    public static Observable<ConfigData> updateConfiginfo(ConfigData data){
+        return CaipiaoApplication.getDaoSession().getConfigDataDao().rx().update(data);
+    }
+
+    public static Observable<ConfigData> insertConfiginfo(ConfigData data){
+        return CaipiaoApplication.getDaoSession().getConfigDataDao().rx().insert(data);
+    }
+
+
+
+
+
+
 
 }

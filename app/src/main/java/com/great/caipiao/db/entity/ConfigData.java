@@ -10,13 +10,23 @@ public class ConfigData {
     @Id(autoincrement = true)
     private Long id;
 
-    private String jigou;
+    private String baiwei;
 
-    private String zhihe;
+    private String shiwei;
 
-    @Generated(hash = 890871751)
-    public ConfigData(Long id, String jigou, String zhihe) {
+    private String gewei;
+
+    private int jigou;
+
+    private int zhihe;
+
+    @Generated(hash = 2034510389)
+    public ConfigData(Long id, String baiwei, String shiwei, String gewei,
+            int jigou, int zhihe) {
         this.id = id;
+        this.baiwei = baiwei;
+        this.shiwei = shiwei;
+        this.gewei = gewei;
         this.jigou = jigou;
         this.zhihe = zhihe;
     }
@@ -33,20 +43,46 @@ public class ConfigData {
         this.id = id;
     }
 
-    public String getJigou() {
+    public String getBaiwei() {
+        return this.baiwei;
+    }
+
+    public void setBaiwei(String baiwei) {
+        this.baiwei = baiwei;
+    }
+
+    public String getShiwei() {
+        return this.shiwei;
+    }
+
+    public void setShiwei(String shiwei) {
+        this.shiwei = shiwei;
+    }
+
+    public String getGewei() {
+        return this.gewei;
+    }
+
+    public void setGewei(String gewei) {
+        this.gewei = gewei;
+    }
+
+    public int getJigou() {
         return this.jigou;
     }
 
-    public void setJigou(String jigou) {
+    public void setJigou(int jigou) {
         this.jigou = jigou;
     }
 
-    public String getZhihe() {
+    public int getZhihe() {
         return this.zhihe;
     }
 
-    public void setZhihe(String zhihe) {
+    public void setZhihe(int zhihe) {
         this.zhihe = zhihe;
     }
+
+
 
 }

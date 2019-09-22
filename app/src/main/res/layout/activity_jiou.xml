@@ -2,25 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
     android:orientation="vertical">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/lv_show"
         android:layout_width="match_parent"
-        android:layout_height="350dp" />
+        android:layout_height="400dp"
+        android:scrollbars="none"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:background="@drawable/linearlayout_bg"
         android:orientation="horizontal"
         >
 
         <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:columnCount="4"
             android:rowCount="2"
@@ -30,6 +30,8 @@
                 android:id="@+id/btn_jjj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_select_style"
                 android:text="奇奇奇"
                 />
 
@@ -37,6 +39,8 @@
                 android:id="@+id/btn_jjo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_select_style"
                 android:text="奇奇偶"
                 />
 
@@ -44,6 +48,8 @@
                 android:id="@+id/btn_joj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_select_style"
                 android:text="奇偶奇"
                 />
 
@@ -51,35 +57,45 @@
                 android:id="@+id/btn_joo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_select_style"
                 android:text="奇偶偶"
                 />
 
             <Button
-                android:id="@+id/btn_jjj"
+                android:id="@+id/btn_ooo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_select_style"
                 android:text="偶偶偶"
                 />
 
             <Button
-                android:id="@+id/btn_jjo"
+                android:id="@+id/btn_ojj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_select_style"
                 android:text="偶奇奇"
                 />
 
             <Button
-                android:id="@+id/btn_joj"
+                android:id="@+id/btn_ojo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="奇偶奇"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_select_style"
+                android:text="偶奇偶"
                 />
 
             <Button
-                android:id="@+id/btn_joo"
+                android:id="@+id/btn_ooj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="奇偶偶"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_select_style"
+                android:text="偶偶奇"
                 />
 
 

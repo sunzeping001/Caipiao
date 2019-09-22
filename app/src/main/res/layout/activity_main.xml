@@ -87,9 +87,20 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btn_createdata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="生成数据"/>
+
         </LinearLayout>
 
-
+        <Button
+            android:id="@+id/btn_jiou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="奇偶设置"
+            />
 
 
 

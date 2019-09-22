@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.great.caipiao.R;
+import com.great.caipiao.db.entity.MainData;
 
 import java.util.List;
 
@@ -18,12 +19,16 @@ import java.util.List;
  * Function :
  * Desc :
  */
-public class JiouAdapter extends RecyclerView.Adapter<JiouAdapter.VH>{
+public class MainDataAdapter extends RecyclerView.Adapter<MainDataAdapter.VH>{
 
-	private List<String> mListDatas;
+	private List<MainData> mListDatas;
 
-	public JiouAdapter(List<String> mListDatas) {
+	public MainDataAdapter(List<MainData> mListDatas) {
 		this.mListDatas = mListDatas;
+	}
+
+	public void setData(List<MainData> datas){
+		mListDatas = datas;
 	}
 
 	public static class VH extends RecyclerView.ViewHolder{
@@ -37,14 +42,14 @@ public class JiouAdapter extends RecyclerView.Adapter<JiouAdapter.VH>{
 
 	@NonNull
 	@Override
-	public JiouAdapter.VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+	public MainDataAdapter.VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 		View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.jiou_item_layout, viewGroup, false);
 		return new VH(v);
 	}
 
 	@Override
-	public void onBindViewHolder(@NonNull final JiouAdapter.VH vh, int i) {
-		vh.tv_item.setText(mListDatas.get(i));
+	public void onBindViewHolder(@NonNull final MainDataAdapter.VH vh, int i) {
+		vh.tv_item.setText(mListDatas.get(i).getData());
 		vh.tv_item.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -55,6 +60,10 @@ public class JiouAdapter extends RecyclerView.Adapter<JiouAdapter.VH>{
 
 	@Override
 	public int getItemCount() {
-		return mListDatas.size();
+		if(mListDatas != null && mListDatas.size() > 0){
+			return mListDatas.size();
+		} else {
+			return 0;
+		}
 	}
 }
