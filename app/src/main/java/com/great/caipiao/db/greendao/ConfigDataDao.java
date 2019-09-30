@@ -28,8 +28,13 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
         public final static Property Baiwei = new Property(1, String.class, "baiwei", false, "BAIWEI");
         public final static Property Shiwei = new Property(2, String.class, "shiwei", false, "SHIWEI");
         public final static Property Gewei = new Property(3, String.class, "gewei", false, "GEWEI");
-        public final static Property Jigou = new Property(4, int.class, "jigou", false, "JIGOU");
-        public final static Property Zhihe = new Property(5, int.class, "zhihe", false, "ZHIHE");
+        public final static Property Jigou = new Property(4, String.class, "jigou", false, "JIGOU");
+        public final static Property Zhihe = new Property(5, String.class, "zhihe", false, "ZHIHE");
+        public final static Property Daxiao = new Property(6, String.class, "daxiao", false, "DAXIAO");
+        public final static Property _021 = new Property(7, String.class, "_021", false, "_021");
+        public final static Property Total = new Property(8, int.class, "total", false, "TOTAL");
+        public final static Property Hezhi = new Property(9, int.class, "hezhi", false, "HEZHI");
+        public final static Property Kuadu = new Property(10, String.class, "kuadu", false, "KUADU");
     }
 
 
@@ -49,8 +54,13 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
                 "\"BAIWEI\" TEXT," + // 1: baiwei
                 "\"SHIWEI\" TEXT," + // 2: shiwei
                 "\"GEWEI\" TEXT," + // 3: gewei
-                "\"JIGOU\" INTEGER NOT NULL ," + // 4: jigou
-                "\"ZHIHE\" INTEGER NOT NULL );"); // 5: zhihe
+                "\"JIGOU\" TEXT," + // 4: jigou
+                "\"ZHIHE\" TEXT," + // 5: zhihe
+                "\"DAXIAO\" TEXT," + // 6: daxiao
+                "\"_021\" TEXT," + // 7: _021
+                "\"TOTAL\" INTEGER NOT NULL ," + // 8: total
+                "\"HEZHI\" INTEGER NOT NULL ," + // 9: hezhi
+                "\"KUADU\" TEXT);"); // 10: kuadu
     }
 
     /** Drops the underlying database table. */
@@ -82,8 +92,33 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
         if (gewei != null) {
             stmt.bindString(4, gewei);
         }
-        stmt.bindLong(5, entity.getJigou());
-        stmt.bindLong(6, entity.getZhihe());
+ 
+        String jigou = entity.getJigou();
+        if (jigou != null) {
+            stmt.bindString(5, jigou);
+        }
+ 
+        String zhihe = entity.getZhihe();
+        if (zhihe != null) {
+            stmt.bindString(6, zhihe);
+        }
+ 
+        String daxiao = entity.getDaxiao();
+        if (daxiao != null) {
+            stmt.bindString(7, daxiao);
+        }
+ 
+        String _021 = entity.get_021();
+        if (_021 != null) {
+            stmt.bindString(8, _021);
+        }
+        stmt.bindLong(9, entity.getTotal());
+        stmt.bindLong(10, entity.getHezhi());
+ 
+        String kuadu = entity.getKuadu();
+        if (kuadu != null) {
+            stmt.bindString(11, kuadu);
+        }
     }
 
     @Override
@@ -109,8 +144,33 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
         if (gewei != null) {
             stmt.bindString(4, gewei);
         }
-        stmt.bindLong(5, entity.getJigou());
-        stmt.bindLong(6, entity.getZhihe());
+ 
+        String jigou = entity.getJigou();
+        if (jigou != null) {
+            stmt.bindString(5, jigou);
+        }
+ 
+        String zhihe = entity.getZhihe();
+        if (zhihe != null) {
+            stmt.bindString(6, zhihe);
+        }
+ 
+        String daxiao = entity.getDaxiao();
+        if (daxiao != null) {
+            stmt.bindString(7, daxiao);
+        }
+ 
+        String _021 = entity.get_021();
+        if (_021 != null) {
+            stmt.bindString(8, _021);
+        }
+        stmt.bindLong(9, entity.getTotal());
+        stmt.bindLong(10, entity.getHezhi());
+ 
+        String kuadu = entity.getKuadu();
+        if (kuadu != null) {
+            stmt.bindString(11, kuadu);
+        }
     }
 
     @Override
@@ -125,8 +185,13 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // baiwei
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // shiwei
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // gewei
-            cursor.getInt(offset + 4), // jigou
-            cursor.getInt(offset + 5) // zhihe
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // jigou
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // zhihe
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // daxiao
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // _021
+            cursor.getInt(offset + 8), // total
+            cursor.getInt(offset + 9), // hezhi
+            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10) // kuadu
         );
         return entity;
     }
@@ -137,8 +202,13 @@ public class ConfigDataDao extends AbstractDao<ConfigData, Long> {
         entity.setBaiwei(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setShiwei(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setGewei(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setJigou(cursor.getInt(offset + 4));
-        entity.setZhihe(cursor.getInt(offset + 5));
+        entity.setJigou(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setZhihe(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setDaxiao(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.set_021(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setTotal(cursor.getInt(offset + 8));
+        entity.setHezhi(cursor.getInt(offset + 9));
+        entity.setKuadu(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
      }
     
     @Override

@@ -33,9 +33,24 @@ public class MainDataAdapter extends RecyclerView.Adapter<MainDataAdapter.VH>{
 
 	public static class VH extends RecyclerView.ViewHolder{
 		TextView tv_item;
+		TextView tv_jiou;
+		TextView tv_zhihe;
+		TextView tv_heshu;
+		TextView tv_kuadu;
+		TextView tv_daxiao;
+		TextView tv_012;
+		TextView tv_hezhi;
+
 		public VH(@NonNull View itemView) {
 			super(itemView);
 			tv_item = itemView.findViewById(R.id.tv_item);
+			tv_jiou = itemView.findViewById(R.id.tv_jiou);
+			tv_zhihe = itemView.findViewById(R.id.tv_zhihe);
+			tv_heshu = itemView.findViewById(R.id.tv_heshu);
+			tv_kuadu = itemView.findViewById(R.id.tv_kuadu);
+			tv_daxiao = itemView.findViewById(R.id.tv_daxiao);
+			tv_012 = itemView.findViewById(R.id.tv_012);
+			tv_hezhi = itemView.findViewById(R.id.tv_hezhi);
 		}
 	}
 
@@ -56,6 +71,13 @@ public class MainDataAdapter extends RecyclerView.Adapter<MainDataAdapter.VH>{
 				Toast.makeText(vh.tv_item.getContext(), vh.tv_item.getText().toString(), Toast.LENGTH_SHORT).show();
 			}
 		});
+		vh.tv_jiou.setText(mListDatas.get(i).getJiou());
+		vh.tv_zhihe.setText(mListDatas.get(i).getZhihe());
+		vh.tv_heshu.setText(mListDatas.get(i).getTotal() + "");
+		vh.tv_kuadu.setText(mListDatas.get(i).getKuadu() + "");
+		vh.tv_daxiao.setText(mListDatas.get(i).getDaxiao());
+		vh.tv_012.setText(mListDatas.get(i).get_012());
+		vh.tv_hezhi.setText(mListDatas.get(i).getHezhi() + "");
 	}
 
 	@Override

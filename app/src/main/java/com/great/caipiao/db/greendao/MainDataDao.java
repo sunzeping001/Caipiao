@@ -26,6 +26,13 @@ public class MainDataDao extends AbstractDao<MainData, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Data = new Property(1, String.class, "data", false, "DATA");
+        public final static Property Jiou = new Property(2, String.class, "jiou", false, "JIOU");
+        public final static Property Zhihe = new Property(3, String.class, "zhihe", false, "ZHIHE");
+        public final static Property Total = new Property(4, int.class, "total", false, "TOTAL");
+        public final static Property Hezhi = new Property(5, int.class, "hezhi", false, "HEZHI");
+        public final static Property Daxiao = new Property(6, String.class, "daxiao", false, "DAXIAO");
+        public final static Property _012 = new Property(7, String.class, "_012", false, "_012");
+        public final static Property Kuadu = new Property(8, int.class, "kuadu", false, "KUADU");
     }
 
 
@@ -42,7 +49,14 @@ public class MainDataDao extends AbstractDao<MainData, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"MAIN_DATA\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"DATA\" TEXT);"); // 1: data
+                "\"DATA\" TEXT," + // 1: data
+                "\"JIOU\" TEXT," + // 2: jiou
+                "\"ZHIHE\" TEXT," + // 3: zhihe
+                "\"TOTAL\" INTEGER NOT NULL ," + // 4: total
+                "\"HEZHI\" INTEGER NOT NULL ," + // 5: hezhi
+                "\"DAXIAO\" TEXT," + // 6: daxiao
+                "\"_012\" TEXT," + // 7: _012
+                "\"KUADU\" INTEGER NOT NULL );"); // 8: kuadu
     }
 
     /** Drops the underlying database table. */
@@ -64,6 +78,29 @@ public class MainDataDao extends AbstractDao<MainData, Long> {
         if (data != null) {
             stmt.bindString(2, data);
         }
+ 
+        String jiou = entity.getJiou();
+        if (jiou != null) {
+            stmt.bindString(3, jiou);
+        }
+ 
+        String zhihe = entity.getZhihe();
+        if (zhihe != null) {
+            stmt.bindString(4, zhihe);
+        }
+        stmt.bindLong(5, entity.getTotal());
+        stmt.bindLong(6, entity.getHezhi());
+ 
+        String daxiao = entity.getDaxiao();
+        if (daxiao != null) {
+            stmt.bindString(7, daxiao);
+        }
+ 
+        String _012 = entity.get_012();
+        if (_012 != null) {
+            stmt.bindString(8, _012);
+        }
+        stmt.bindLong(9, entity.getKuadu());
     }
 
     @Override
@@ -79,6 +116,29 @@ public class MainDataDao extends AbstractDao<MainData, Long> {
         if (data != null) {
             stmt.bindString(2, data);
         }
+ 
+        String jiou = entity.getJiou();
+        if (jiou != null) {
+            stmt.bindString(3, jiou);
+        }
+ 
+        String zhihe = entity.getZhihe();
+        if (zhihe != null) {
+            stmt.bindString(4, zhihe);
+        }
+        stmt.bindLong(5, entity.getTotal());
+        stmt.bindLong(6, entity.getHezhi());
+ 
+        String daxiao = entity.getDaxiao();
+        if (daxiao != null) {
+            stmt.bindString(7, daxiao);
+        }
+ 
+        String _012 = entity.get_012();
+        if (_012 != null) {
+            stmt.bindString(8, _012);
+        }
+        stmt.bindLong(9, entity.getKuadu());
     }
 
     @Override
@@ -90,7 +150,14 @@ public class MainDataDao extends AbstractDao<MainData, Long> {
     public MainData readEntity(Cursor cursor, int offset) {
         MainData entity = new MainData( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1) // data
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // data
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // jiou
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // zhihe
+            cursor.getInt(offset + 4), // total
+            cursor.getInt(offset + 5), // hezhi
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // daxiao
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // _012
+            cursor.getInt(offset + 8) // kuadu
         );
         return entity;
     }
@@ -99,6 +166,13 @@ public class MainDataDao extends AbstractDao<MainData, Long> {
     public void readEntity(Cursor cursor, MainData entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setData(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setJiou(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setZhihe(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setTotal(cursor.getInt(offset + 4));
+        entity.setHezhi(cursor.getInt(offset + 5));
+        entity.setDaxiao(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.set_012(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setKuadu(cursor.getInt(offset + 8));
      }
     
     @Override

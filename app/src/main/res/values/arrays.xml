@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="jiou">
+		<item></item>
+		<item>奇奇奇</item>
+		<item>奇奇偶</item>
+		<item>奇偶奇</item>
+		<item>奇偶偶</item>
+		<item>偶偶偶</item>
+		<item>偶奇奇</item>
+		<item>偶奇偶</item>
+		<item>偶偶奇</item>
+	</string-array>
+
+	<string-array name="zhihe">
+		<item></item>
+		<item>质质质</item>
+		<item>质质合</item>
+		<item>质合质</item>
+		<item>质合合</item>
+		<item>合合合</item>
+		<item>合质质</item>
+		<item>合质合</item>
+		<item>合合质</item>
+	</string-array>
+
+	<string-array name="daxiao">
+		<item></item>
+		<item>大大大</item>
+		<item>大大小</item>
+		<item>大小大</item>
+		<item>大小小</item>
+		<item>小小小</item>
+		<item>小大大</item>
+		<item>小大小</item>
+		<item>小小大</item>
+	</string-array>
+
+	<string-array name="hezhi">
+		<item></item>
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+		<item>9</item>
+	</string-array>
+
+	<string-array name="total">
+		<item></item>
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+		<item>9</item>
+		<item>10</item>
+
+		<item>11</item>
+		<item>12</item>
+		<item>13</item>
+		<item>14</item>
+		<item>15</item>
+		<item>16</item>
+		<item>17</item>
+		<item>18</item>
+		<item>19</item>
+		<item>20</item>
+
+		<item>21</item>
+		<item>22</item>
+		<item>23</item>
+		<item>24</item>
+		<item>25</item>
+		<item>26</item>
+		<item>27</item>
+
+
+	</string-array>
+
+	<string-array name="_021">
+		<item></item>
+		<item>000</item>
+		<item>001</item>
+		<item>002</item>
+		<item>010</item>
+		<item>011</item>
+		<item>012</item>
+		<item>020</item>
+		<item>021</item>
+		<item>022</item>
+
+		<item>100</item>
+		<item>101</item>
+		<item>102</item>
+		<item>110</item>
+		<item>111</item>
+		<item>112</item>
+		<item>120</item>
+		<item>121</item>
+		<item>122</item>
+
+		<item>200</item>
+		<item>201</item>
+		<item>202</item>
+		<item>210</item>
+		<item>211</item>
+		<item>212</item>
+		<item>220</item>
+		<item>221</item>
+		<item>222</item>
+
+	</string-array>
+</resources>

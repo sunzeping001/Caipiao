@@ -16,19 +16,35 @@ public class ConfigData {
 
     private String gewei;
 
-    private int jigou;
+    private String jigou;
 
-    private int zhihe;
+    private String zhihe;
 
-    @Generated(hash = 2034510389)
+    private String daxiao;
+
+    private String _021;
+
+    private int total;
+
+    private int hezhi;
+
+	private String kuadu;
+
+    @Generated(hash = 1040695836)
     public ConfigData(Long id, String baiwei, String shiwei, String gewei,
-            int jigou, int zhihe) {
+            String jigou, String zhihe, String daxiao, String _021, int total,
+            int hezhi, String kuadu) {
         this.id = id;
         this.baiwei = baiwei;
         this.shiwei = shiwei;
         this.gewei = gewei;
         this.jigou = jigou;
         this.zhihe = zhihe;
+        this.daxiao = daxiao;
+        this._021 = _021;
+        this.total = total;
+        this.hezhi = hezhi;
+        this.kuadu = kuadu;
     }
 
     @Generated(hash = 2100648308)
@@ -67,21 +83,62 @@ public class ConfigData {
         this.gewei = gewei;
     }
 
-    public int getJigou() {
+    public String getJigou() {
         return this.jigou;
     }
 
-    public void setJigou(int jigou) {
+    public void setJigou(String jigou) {
         this.jigou = jigou;
     }
 
-    public int getZhihe() {
+    public String getZhihe() {
         return this.zhihe;
     }
 
-    public void setZhihe(int zhihe) {
+    public void setZhihe(String zhihe) {
         this.zhihe = zhihe;
     }
+
+    public String getDaxiao() {
+        return this.daxiao;
+    }
+
+    public void setDaxiao(String daxiao) {
+        this.daxiao = daxiao;
+    }
+
+    public String get_021() {
+        return this._021;
+    }
+
+    public void set_021(String _021) {
+        this._021 = _021;
+    }
+
+    public int getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public int getHezhi() {
+        return this.hezhi;
+    }
+
+    public void setHezhi(int hezhi) {
+        this.hezhi = hezhi;
+    }
+
+    public String getKuadu() {
+        return this.kuadu;
+    }
+
+    public void setKuadu(String kuadu) {
+        this.kuadu = kuadu;
+    }
+
 
 
 
